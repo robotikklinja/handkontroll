@@ -6,7 +6,7 @@ En handkontroll med display basert på Arduino Nano
 ## Electronics components
 
 Antal deler 27, 17 unike.
-Pris per elev: 185 NOK
+Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer til en klasse på 18 elever. 
 
 ## Alixpress linker
 * [5PCS 20mm Shaft Potentiometer, 10K](https://www.aliexpress.com/item/1005001421294754.html)
@@ -31,8 +31,21 @@ Pris per elev: 185 NOK
 [Excel BOM](handkontroll_ali_BOM.xlsx)
 
 ## Mekaniske deler
-
 * 2 mm * 1000mm * 300 mm aluminium platemeteall per elev. Kjøp minst dobbel mengde.
 * Popnagler
 * Ø2.5 mm, Ø3 mm, Ø4mm maskinskruer og mutter
 * Gummiføtter [$1,24 USD for 20pcs Conical Rubber Foot aliexpress](https://www.aliexpress.com/item/1005002995372007.html)
+
+## Verktøy
+* Platesaks
+* Plateknekker
+* Filer
+* Skrustikk
+* Drill
+* Gjengetapp
+* Høreselvern
+* Beskyttelsebriller
+
+## 3D printer
+* Elevene designer og printer knott til potentiometeren
+* Fint å bruke til batteriholder [thingiverser, eksempel](https://www.thingiverse.com/thing:2144462)
