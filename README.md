@@ -51,9 +51,9 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 * Fint å bruke til batteriholder [thingiverser, eksempel](https://www.thingiverse.com/thing:2144462)
 
 ## Kretstegning
-* [Med alle deler, två knapper, fritzing koblingsskjema](handkontroll_full_schematic.fzz)
+* [Med alle deler (noen løse), två knapper, fritzing koblingsskjema](handkontroll_full_schematic.fzz)
 * [PCB, två knapper, fritzing ](handkontroll_full_schematic_pcb.fzz)
-* [PCB 4 knapper, fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
+* [PCB 4 knapper, fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz) [PDF-koblingskjema](handkontroll_full_schematic_pcb_4_buttons_schem.pdf)
 
 
 ## PCB 
