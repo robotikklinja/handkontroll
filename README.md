@@ -56,7 +56,7 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 * 2 knapp PCB versjon. Bestillt fra fabrikk via deres integrerte tjenste [Se online](https://aisler.net/p/RCMDKGZY)
 
 ### 4 buttons
-* Frtizing [PDF-koblingskjema](handkontroll_full_schematic_pcb_4_buttons_schem.pdf), [PCB 4 knapper, bare kortet, fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
+* Frtizing [PDF-koblingskjema bare kortet](handkontroll_full_schematic_pcb_4_buttons_schem.pdf), [PCB med 4 knapper bare kortet i fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
 * 4 knapp versjon- Designet i fritzing,  Bestillt fra fabrikk via deres integrerte tjenste [Se kortet online](https://aisler.net/p/QSIZRARK)
 
 ## Eksempelkode
