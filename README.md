@@ -59,3 +59,6 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 ## PCB 
 * 4 knapp versjon- Designet i fritzing, bestillt via deres integrerte tjenste. [Se kortet online](https://aisler.net/p/QSIZRARK)
 * 2 knapp PCB versjon. [Se online](https://aisler.net/p/RCMDKGZY)
+
+## Eksempelkode
+* [KubenKoder repository](https://github.com/KubenKoder/Arduino/tree/master/Egna%20exempel/handkontroll)
