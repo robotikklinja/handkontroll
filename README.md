@@ -36,6 +36,8 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 * Ø2.5 mm, Ø3 mm, Ø4mm maskinskruer og mutter
 * Gummiføtter [$1,24 USD for 20pcs Conical Rubber Foot aliexpress](https://www.aliexpress.com/item/1005002995372007.html)
 
+[Se denne for mekaniske tegninger](https://github.com/Jaknil/Arduino_material/tree/master/handkontroll)
+
 ## Verktøy
 * Platesaks
 * Plateknekker
@@ -51,13 +53,23 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 * Fint å bruke til batteriholder [thingiverser, eksempel](https://www.thingiverse.com/thing:2144462)
 
 ## Kretstegning
+
+Har laget en versjon med 2 knapper og en med 4. Knappene har innebygget LED lys i ulike ferger som kan dimmes med PWM. Alt er koblet til kortet med headers.
+
+For at lage PCB-layout så har jeg måttet slettet knapper og LEDs fra koblingsskjema-vyen for at de ikke skall bli del av PCBen. 
+Det finns forskjellige fritzing filer, noen viser alle deler, noen viser bare delene som er direkte på kretskortet, med headers for tilkobling.
+
 ### Two buttons
-* Fritzing: [Koblingsskjema, alle deler PDF](handkontroll_full_schematic_all_components.pdf), [Fritzing fil med alle deler](handkontroll_full_schematic_all_components.fzz),  [PCB, bare kortet, fritzing ](handkontroll_full_schematic_pcb.fzz)
+* [Koblingsskjema, alle deler PDF](handkontroll_full_schematic_all_components.pdf)
+* [Fritzing fil med alle deler, OBS ikke riktig JST-header pin spacing for PCB på denne](handkontroll_full_schematic_all_components.fzz)
+* [PCB, bare kortet, fritzing (riktig JST pin spacing)](handkontroll_full_schematic_pcb.fzz)
 * 2 knapp PCB versjon. Bestillt fra fabrikk via deres integrerte tjenste [Se online](https://aisler.net/p/RCMDKGZY)
 
 ### 4 buttons
-* Frtizing [PDF-koblingskjema bare kortet](handkontroll_full_schematic_pcb_4_buttons_schem.pdf), [PCB med 4 knapper bare kortet i fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
+* Frtizing [PDF-koblingskjema bare kortet](handkontroll_full_schematic_pcb_4_buttons_schem.pdf)
+* [PCB med 4 knapper bare kortet i fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
 * 4 knapp versjon- Designet i fritzing,  Bestillt fra fabrikk via deres integrerte tjenste [Se kortet online](https://aisler.net/p/QSIZRARK)
 
 ## Eksempelkode
 * [KubenKoder repository](https://github.com/KubenKoder/Arduino/tree/master/Egna%20exempel/handkontroll)
+* [Jaknil repository](https://github.com/Jaknil/Arduino_material/tree/master/handkontroll)
