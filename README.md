@@ -51,14 +51,13 @@ Totalt 185 NOK. Pris per elev inkludert frakt ekskludert moms når vi importerer
 * Fint å bruke til batteriholder [thingiverser, eksempel](https://www.thingiverse.com/thing:2144462)
 
 ## Kretstegning
-* [Med alle deler (noen løse), två knapper, fritzing koblingsskjema](handkontroll_full_schematic.fzz)
-* [PCB, två knapper, fritzing ](handkontroll_full_schematic_pcb.fzz)
-* [PCB 4 knapper, fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz) [PDF-koblingskjema](handkontroll_full_schematic_pcb_4_buttons_schem.pdf)
+### Two buttons
+* Fritzing: [Koblingsskjema, alle deler PDF](handkontroll_full_schematic_all_components.pdf), [Fritzing fil med alle deler](handkontroll_full_schematic_all_components.fzz),  [PCB, bare kortet, fritzing ](handkontroll_full_schematic_pcb.fzz)
+* 2 knapp PCB versjon. Bestillt fra fabrikk via deres integrerte tjenste [Se online](https://aisler.net/p/RCMDKGZY)
 
-
-## PCB 
-* 4 knapp versjon- Designet i fritzing, bestillt via deres integrerte tjenste. [Se kortet online](https://aisler.net/p/QSIZRARK)
-* 2 knapp PCB versjon. [Se online](https://aisler.net/p/RCMDKGZY)
+### 4 buttons
+* Frtizing [PDF-koblingskjema](handkontroll_full_schematic_pcb_4_buttons_schem.pdf), [PCB 4 knapper, bare kortet, fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
+* 4 knapp versjon- Designet i fritzing,  Bestillt fra fabrikk via deres integrerte tjenste [Se kortet online](https://aisler.net/p/QSIZRARK)
 
 ## Eksempelkode
 * [KubenKoder repository](https://github.com/KubenKoder/Arduino/tree/master/Egna%20exempel/handkontroll)
