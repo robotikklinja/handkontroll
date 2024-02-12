@@ -69,6 +69,15 @@ Det finns forskjellige fritzing filer, noen viser alle deler, noen viser bare de
 * Frtizing [PDF-koblingskjema bare kortet](handkontroll_full_schematic_pcb_4_buttons_schem.pdf)
 * [PCB med 4 knapper bare kortet i fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
 * 4 knapp versjon- Designet i fritzing,  Bestillt fra fabrikk via deres integrerte tjenste [Se kortet online](https://aisler.net/p/QSIZRARK)
+  
+|    Antall kort  | Totalpris i € | Stykkpis i € |
+| ----------- | ----------- | ----------- |
+| 3     | 16       | 5,3       |
+| 6   | 24        | 4       |
+| 12   | 34        | 2,8       |
+| 108   | 232        | 2,1       |
+
+Shipping kostet 22€ med tracking 0€ uten trakking men tok då veldig lang tid.    
 
 ## Eksempelkode
 * [KubenKoder repository](https://github.com/KubenKoder/Arduino/tree/master/Egna%20exempel/handkontroll)
