@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://ki.osloskolen.no/bot/1 -->
+<html lang="no" class=" gyovzgbc idc0_350"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex">
+  
+  <title>
+  KI for Osloskolen
+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="https://ki.osloskolen.no/static/logo/favicon_16.ico" type="image/x-icon">
+  <link href="./KI for Osloskolen lager koden_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./KI for Osloskolen lager koden_files/style.css">
+</head>
+
+
+<body>
+  
+<header>
+  <div id="header" class="d-flex justify-content-between p-4 oslo-bg-light">
+    <a href="https://ki.osloskolen.no/">
+      <h1 class="h3 p-3">
+        Kunstig intelligens for Osloskolen
+      </h1>
+    </a>
+    <a class="logo" href="https://ki.osloskolen.no/">
+      <img src="./KI for Osloskolen lager koden_files/oslo_logo_sort.svg" alt="Oslologo">
+    </a>
+  </div>
+
+  
+  <nav class="d-flex flex-row-reverse">
+    
+    <div class="p-3">
+      <a href="https://ki.osloskolen.no/logout/">Logg ut </a>
+    </div>
+    
+    <div class="p-3">
+      <span class="">
+        <a href="https://ki.osloskolen.no/info/about">Om tjenesten</a>
+      </span>
+    </div>
+    
+    <div class="p-3">
+      <span class="">
+        <a href="https://ki.osloskolen.no/info/how_to">Tips</a>
+      </span>
+    </div>
+    
+    
+    <div class="p-3">
+      <a href="https://ki.osloskolen.no/">Startside</a>
+    </div>
+    
+    
+  </nav>
+  
+
+</header>
+
+
+
+
+  <div class="container mt-3">    
+    
+
+    
+
+<div id="bot_page" data-v-app=""><div id="bot_nr" hidden="">1</div><div><h1 class="h2">Osloskolen-GPT</h1><p>Denne chatboten er vennlig og flink. Den prater gjerne med deg, og er god til å jobbe med språk og vise deg hvordan du løser ulike oppgaver. Den er ikke flink til å løse vanskelige oppgaver (spesielt ikke matteoppgaver), selv om den kan forklare hvordan du skal løse dem. Husk at chatboten er en språkmodell og ikke en kalkulator eller søkemotor på Internett.</p><button class="btn oslo-btn-secondary">Vis ledetekst</button><div class="card border-dark"><ul class="list-group list-group-flush"><span><!----></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Hei, jeg underviser i elektronikk på videregående skole og ønsker hjelp at lage arduino kode for mine elever. Den skal være kommentert så at den er lettlest for en nybegynnere. Jeg har allerede et kretskort og kjenner til hva jeg skall koble til hvilke pins. Vi bygger opp koden steg for steg og begynner med innstillinger,  jeg vill ha seriell-kommunikasjon og disse pins: 
+Function	Name	Pin
+Input	Button1	D2
+Output	Led1	D3
+Input	Button2	D4
+Output	Led2	D5
+Output	Led3	D6
+Input	Button3	D7
+Input	Button4	D8
+Output	Led4	D9
+Output	PWM_Motor	D10
+Output	Direction_Motor	D11
+Output	Run_Motor	D12
+Output	Speaker	D13
+Input	Potentiometer	A0
+Kan du generere koden for meg? Husk kommentarer som forklarer koden.</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig kan jeg hjelpe deg med å generere koden! Her er et eksempel på en Arduino-kode som oppfyller dine krav. Jeg har kommentert koden for å gjøre den enklere å forstå for nybegynnere:</p>
+<pre><code class="language-cpp">// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnummer for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnummer for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.println(potValue);
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret
+  int motorSpeed = map(potValue, 0, 1023, 0, 255);
+  analogWrite(PWM_MOTOR_PIN, motorSpeed);
+  digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>Dette er grunnleggende kode som lar deg lese knappene, potensiometeret og styre lysdioder, motor og høyttaler ved hjelp av Arduino. Husk å bekrefte at pinnumrene stemmer overens med dine kretskorttilkoblinger før du laster opp koden. Ta gjerne kontakt hvis du trenger ytterligere hjelp!</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Takk! Koden virker som den skall. Kan du legge til støtte for en I2C 1602 LCD skjerm på pins A4 og 
+A5? Jeg vill at motorens hastighet i prosent skall skrives på skjermen.
+</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en oppdatert versjon av koden som legger til støtte for I2C LCD-skjermen og viser motorens hastighet i prosent:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent
+  int motorSpeed = map(potValue, 0, 1023, 0, 100);
+  lcd.setCursor(0, 1);
+  lcd.print("               "); // Sletter forrige verdi
+  lcd.setCursor(0, 1);
+  lcd.print(motorSpeed);
+  lcd.print("%");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.println(motorSpeed);
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret
+  analogWrite(PWM_MOTOR_PIN, motorSpeed * 2.55);
+  digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>Denne koden inkluderer nå LiquidCrystal_I2C biblioteket, oppretter et LiquidCrystal_I2C objekt, og bruker det til å skrive motorhastigheten i prosent til LCD-skjermen. Merk at 0x27 er I2C-adressen for standard LCD-skjermen, så sørg for at din LCD-skjerm har samme adresse. Hvis du bruker en annen I2C-adresse, må du oppdatere lcd.begin() -funksjonen i setup() -delen.</p>
+<p>Lykke til med undervisningen din! Gi beskjed hvis du trenger ytterligere hjelp.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Flott! La oss ta to av knappene i bruk! Button1 skall brukes for å starte motoren og Button2 for å stoppe den. </span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en oppdatert versjon av koden som legger til funksjonalitet for å starte og stoppe motoren ved hjelp av Button1 og Button2:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent
+  int motorSpeed = map(potValue, 0, 1023, 0, 100);
+  lcd.setCursor(0, 1);
+  lcd.print("               "); // Sletter forrige verdi
+  lcd.setCursor(0, 1);
+  lcd.print(motorSpeed);
+  lcd.print("%");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.println(motorSpeed);
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    analogWrite(PWM_MOTOR_PIN, motorSpeed * 2.55);
+    digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden har jeg lagt til logikk som starter motoren når Button1 er trykket, og stopper motoren når Button2 er trykket. Så lenge <code>motorRunning</code> er satt til <code>true</code>, vil motoren kjøre med den hastigheten som er angitt av potensiometeret.</p>
+<p>Sørg for å oppdatere tilkoblingene dine slik at Button1 er koblet til D2 og Button2 er koblet til D4.</p>
+<p>Lykke til med videre undervisning! Gi beskjed hvis du trenger mer hjelp.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Jeg vill kunne kjøre motoren i et antall sekunder før den stopper automatisk. Legg til en timer som begynner på 60 sekunder og som teller ned når motoren kjører. Vis tiden som gjenstår på LCD skjermen. </span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en oppdatert versjon av koden som legger til en nedtellingsfunksjon for å automatisk stoppe motoren etter et angitt antall sekunder, og som viser den gjenværende tiden på LCD-skjermen:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+unsigned long startTime = 0;
+const unsigned int MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent og gjenværende tid
+  int motorSpeed = map(potValue, 0, 1023, 0, 100);
+  lcd.setCursor(0, 1);
+  lcd.print("Speed: ");
+  lcd.print(motorSpeed);
+  lcd.print("%  ");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.print(motorSpeed);
+  
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(11, 1);
+    lcd.print("    ");
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    analogWrite(PWM_MOTOR_PIN, motorSpeed * 2.55);
+    digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+    
+    // Beregner gjenstående tid
+    unsigned long currentTime = millis();
+    unsigned long elapsedTime = currentTime - startTime;
+    unsigned long remainingTime = MOTOR_RUN_TIME - elapsedTime;
+    if (remainingTime &lt; 0) remainingTime = 0;
+    
+    // Viser gjenstående tid på LCD-skjermen
+    lcd.setCursor(11, 1);
+    lcd.print(remainingTime / 1000);
+    lcd.print("s  ");
+  }
+  
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden har jeg lagt til en <code>startTime</code>-variabel for å lagre tidspunktet da motoren ble startet. Jeg bruker <code>millis()</code>-funksjonen til å beregne tiden som har gått siden oppstart av Arduino, og dermed beregne gjenstående tid ved å trekke fra <code>startTime</code>. Jeg bruker deretter LCD-skjermen til å vise den gjenværende tiden.</p>
+<p>Sørg for å oppdatere tilkoblingene dine slik at Button1 er koblet til D2 og Button2 er koblet til D4.</p>
+<p>Lykke til med videre undervisning! Gi beskjed hvis du trenger mer hjelp.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">La oss gjøre så at høytaleren gir en kort signal når timeren når null.</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er den oppdaterte koden som legger til funksjonalitet for å gi et kort signal fra høyttaleren når timeren når null:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+unsigned long startTime = 0;
+const unsigned int MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent og gjenværende tid
+  int motorSpeed = map(potValue, 0, 1023, 0, 100);
+  lcd.setCursor(0, 1);
+  lcd.print("Speed:");
+  lcd.print(motorSpeed);
+  lcd.print("%  ");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.print(motorSpeed);
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(7, 1);
+    lcd.print("      ");
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    analogWrite(PWM_MOTOR_PIN, motorSpeed * 2.55);
+    digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+
+    // Beregner gjenstående tid
+    unsigned long currentTime = millis();
+    unsigned long elapsedTime = currentTime - startTime;
+    unsigned long remainingTime = MOTOR_RUN_TIME - elapsedTime;
+    if (remainingTime &lt; 0) remainingTime = 0;
+
+    // Viser gjenværende tid på LCD-skjermen
+    lcd.setCursor(7, 1);
+    lcd.print(remainingTime / 1000);
+    lcd.print("s  ");
+
+    // Gir et kort signal fra høyttaleren når timeren når null
+    if (remainingTime == 0) {
+      tone(SPEAKER_PIN, 2000, 200);
+    }
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden legger jeg til logikk til slutten av <code>loop()</code>-funksjonen for å sjekke om <code>remainingTime</code>-verdien er null, og hvis den er det, gir en kort tone fra høyttaleren ved hjelp av <code>tone()</code>-funksjonen.</p>
+<p>Pass på at høyttaleren er koblet til pine 13 (SPEAKER_PIN). Hvis du ønsker å endre tonefrekvensen eller varigheten av signalet, kan du justere parameterne i <code>tone()</code>-funksjonen.</p>
+<p>Lykke til med videre undervisning! Gi beskjed hvis du trenger mer hjelp.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Kan du endre koden så att motoren går fra at kjøre full hastighet i revers når potentiometeren er lav, er helt stoppet når den er i midten og kjører full hastighet fremover når potentiometeren måler høy? </span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Ja, selvfølgelig! Her er den oppdaterte koden som endrer retningen og hastigheten til motoren basert på potensiometerets verdi:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+int motorDirection = 0;
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent
+  int motorSpeed = map(potValue, 0, 1023, -255, 255);
+  lcd.setCursor(0, 1);
+  lcd.print("    "); // Sletter forrige verdi
+  lcd.setCursor(0, 1);
+  lcd.print(motorSpeed);
+  lcd.print(" ");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.println(motorSpeed);
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    motorDirection = 1;
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    if (potValue &lt; 512) {
+      motorDirection = -1;
+    } else if (potValue &gt; 512) {
+      motorDirection = 1;
+    } else {
+      motorDirection = 0;
+    }
+
+    int targetSpeed = abs(motorSpeed);
+
+    analogWrite(PWM_MOTOR_PIN, targetSpeed);
+
+    if (motorDirection == 1) {
+      digitalWrite(DIRECTION_MOTOR_PIN, HIGH);
+    } else if (motorDirection == -1) {
+      digitalWrite(DIRECTION_MOTOR_PIN, LOW);
+    } else {
+      digitalWrite(DIRECTION_MOTOR_PIN, LOW);
+      analogWrite(PWM_MOTOR_PIN, 0);
+    }
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden har jeg lagt til en <code>motorDirection</code>-variabel som holder styr på retningen til motoren (-1 for revers, 0 for stopp og 1 for fremover). Ved hjelp av denne verdien justerer jeg retning og hastighet på motoren. Jeg endrer også verdien som er tilordnet <code>motorSpeed</code>-variabelen, slik at hastigheten kan variere fra -255 til 255 (full hastighet i revers til full hastighet fremover).</p>
+<p>Merk at retningen til motoren vil bli oppdatert i sanntid basert på potensiometerets verdi. Hvis potensiometeret leses som lavere enn midten, vil motoren kjøre i revers; hvis det leses som høyere enn midten, vil motoren kjøre fremover; og hvis det leses som nøyaktig midten, vil motoren stoppe.</p>
+<p>Sørg for at motoren er riktig tilkoblet DIRECTION_MOTOR_PIN for å kunne endre retningen.</p>
+<p>Lykke til med videre undervisning! Gi beskjed hvis det er noe annet jeg kan hjelpe deg med.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Den siste versjonen av koden mangler den fine nedtelling-funksjonen som du utviklet for meg, kan du legge de funksjonene inn i samme kode? </span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er den oppdaterte koden som kombinerer funksjonaliteten for nedtellingen fra forrige versjon sammen med retning og hastighet basert på potensiometerets verdi:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+int motorDirection = 0;
+unsigned long startTime = 0;
+const unsigned long MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent
+  int motorSpeed = map(potValue, 0, 1023, -255, 255);
+  lcd.setCursor(0, 1);
+  lcd.print("Speed:");
+  lcd.print(motorSpeed);
+  lcd.print(" ");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.println(motorSpeed);
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH &amp;&amp; !motorRunning) {
+    motorRunning = true;
+    motorDirection = 1;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH &amp;&amp; motorRunning) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(7, 1);
+    lcd.print("     ");
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    if (potValue &lt; 512) {
+      motorDirection = -1;
+    } else if (potValue &gt; 512) {
+      motorDirection = 1;
+    } else {
+      motorDirection = 0;
+    }
+
+    // Beregner gjenstående tid
+    unsigned long currentTime = millis();
+    unsigned long elapsedTime = currentTime - startTime;
+    unsigned long remainingTime = MOTOR_RUN_TIME - elapsedTime;
+    if (remainingTime &lt; 0) remainingTime = 0;
+
+    // Viser gjenværende tid på LCD-skjermen
+    lcd.setCursor(7, 1);
+    lcd.print(remainingTime / 1000);
+    lcd.print("s  ");
+
+    // Gir et kort signal fra høyttaleren når timeren når null
+    if (remainingTime == 0) {
+      tone(SPEAKER_PIN, 2000, 200);
+    }
+
+    // Setter hastighet og retning for motoren
+    int targetSpeed = abs(motorSpeed) * motorDirection;
+    analogWrite(PWM_MOTOR_PIN, targetSpeed);
+    digitalWrite(DIRECTION_MOTOR_PIN, motorDirection &gt; 0 ? HIGH : LOW);
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden har jeg kombinert funksjonene for nedtellingen fra tidligere og støtten for å endre retning og hastighet basert på potensiometerets verdi. Husk å justere <code>MOTOR_RUN_TIME</code> i henhold til ønsket nedtellingstid i millisekunder.</p>
+<p>Lykke til med videre undervisning, og gi beskjed hvis du trenger mer hjelp!</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">En siste ting! Kan du legge til funksjonen at Button3 trekker av en sekund fra nedtellingen og Button4 legger til et sekund?</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er den oppdaterte koden som inkluderer funksjonalitet for å trekke fra og legge til et sekund fra nedtellingen ved hjelp av Button3 og Button4:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+bool motorRunning = false;
+int motorDirection = 0;
+unsigned long startTime = 0;
+const unsigned long MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer LCD-skjermen med motorhastigheten i prosent
+  int motorSpeed = map(potValue, 0, 1023, -255, 255);
+  lcd.setCursor(0, 1);
+  lcd.print("Speed:");
+  lcd.print(motorSpeed);
+  lcd.print(" ");
+
+  // Sender verdiene til seriell kommunikasjon
+  Serial.print("Button1: ");
+  Serial.print(button1State);
+  Serial.print(" | Button2: ");
+  Serial.print(button2State);
+  Serial.print(" | Button3: ");
+  Serial.print(button3State);
+  Serial.print(" | Button4: ");
+  Serial.print(button4State);
+  Serial.print(" | Potentiometer: ");
+  Serial.print(potValue);
+  Serial.print(" | Motor Speed: ");
+  Serial.println(motorSpeed);
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH &amp;&amp; !motorRunning) {
+    motorRunning = true;
+    motorDirection = 1;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH &amp;&amp; motorRunning) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(7, 1);
+    lcd.print("     ");
+  }
+
+  // Trekker fra et sekund hvis Button3 er trykket
+  if (button3State == HIGH &amp;&amp; motorRunning) {
+    if ((millis() - startTime) &gt;= 1000) {
+      startTime += 1000;
+    }
+  }
+
+  // Legger til et sekund hvis Button4 er trykket
+  if (button4State == HIGH &amp;&amp; motorRunning) {
+    if ((millis() - startTime) &lt;= (MOTOR_RUN_TIME - 1000)) {
+      startTime -= 1000;
+    }
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Setter hastighet og retning for motoren basert på potensiometeret hvis motoren er i gang
+  if (motorRunning) {
+    if (potValue &lt; 512) {
+      motorDirection = -1;
+    } else if (potValue &gt; 512) {
+      motorDirection = 1;
+    } else {
+      motorDirection = 0;
+    }
+
+    // Beregner gjenstående tid
+    unsigned long currentTime = millis();
+    unsigned long elapsedTime = currentTime - startTime;
+    unsigned long remainingTime = MOTOR_RUN_TIME - elapsedTime;
+    if (remainingTime &lt; 0) remainingTime = 0;
+
+    // Viser gjenværende tid på LCD-skjermen
+    lcd.setCursor(7, 1);
+    lcd.print(remainingTime / 1000);
+    lcd.print("s  ");
+
+    // Gir et kort signal fra høyttaleren når timeren når null
+    if (remainingTime == 0) {
+      tone(SPEAKER_PIN, 2000, 200);
+    }
+
+    // Setter hastighet og retning for motoren
+    int targetSpeed = abs(motorSpeed) * motorDirection;
+    analogWrite(PWM_MOTOR_PIN, targetSpeed);
+    digitalWrite(DIRECTION_MOTOR_PIN, motorDirection &gt; 0 ? HIGH : LOW);
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>Nå trekker Button3 av ett sekund fra nedtellingstiden når motoren allerede kjører, og Button4 legger til ett sekund når motoren allerede kjører. Pass på at Button3 er koblet til D7 og Button4 er koblet til D8.</p>
+<p>Lykke til med videre undervisning, og gi beskjed hvis du trenger mer hjelp!</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Jeg vil at knappene skall kunne endre nedtellingstiden uansett om motoren kjører eller ikke, kan du endre på koden?</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er den oppdaterte koden som gjør at knappene kan endre nedtellingstiden, uavhengig av om motoren kjører eller ikke:</p>
+<pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+int motorSpeed = 0;
+bool motorRunning = false;
+unsigned long startTime = 0;
+unsigned long remainingTime = 0;
+const unsigned long MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Setter oppgangstiden som nedtellingstiden
+  remainingTime = MOTOR_RUN_TIME;
+
+  // Setter oppgangstiden som starttidspunktet
+  startTime = millis();
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer retning og hastighet basert på potensiometeret hvis motoren ikke kjører
+  if (!motorRunning) {
+    motorSpeed = map(potValue, 0, 1023, -255, 255);
+
+    // Setter hastighet og retning for motoren
+    int targetSpeed = abs(motorSpeed);
+    analogWrite(PWM_MOTOR_PIN, targetSpeed);
+    digitalWrite(DIRECTION_MOTOR_PIN, motorSpeed &gt; 0 ? HIGH : LOW);
+
+    // Oppdaterer LCD-skjermen med motorhastigheten
+    lcd.setCursor(0, 1);
+    lcd.print("Speed:");
+    lcd.print(targetSpeed);
+    lcd.print(" ");
+  }
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    remainingTime = MOTOR_RUN_TIME;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(7, 1);
+    lcd.print("     ");
+  }
+
+  // Trekker fra et sekund hvis Button3 er trykket
+  if (button3State == HIGH) {
+    if ((millis() - startTime) &gt;= 1000) {
+      startTime += 1000;
+      remainingTime -= 1000;
+      if (remainingTime &lt; 0) {
+        remainingTime = 0;
+      }
+    }
+  }
+
+  // Legger til et sekund hvis Button4 er trykket
+  if (button4State == HIGH) {
+    if ((millis() - startTime) &lt;= (MOTOR_RUN_TIME - 1000)) {
+      startTime -= 1000;
+      remainingTime += 1000;
+      if (remainingTime &gt; MOTOR_RUN_TIME) {
+        remainingTime = MOTOR_RUN_TIME;
+      }
+    }
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Viser gjenværende tid på LCD-skjermen
+  lcd.setCursor(7, 1);
+  lcd.print(remainingTime / 1000);
+  lcd.print("s  ");
+
+  // Gjør et kort signal fra høyttaleren når timeren når null
+  if (motorRunning &amp;&amp; remainingTime == 0) {
+    tone(SPEAKER_PIN, 2000, 200);
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+</code></pre>
+<p>I denne oppdaterte koden har jeg lagt til funksjonalitet for å trekke fra eller legge til ett sekund i nedtellingstiden uansett om motoren kjører eller ikke ved å trykke på Button3 eller Button4. Nedtellingstiden vil bli oppdatert på LCD-skjermen og starte på det nye tallet. Pass på at Button3 er koblet til D7 og Button4 er koblet til D8.</p>
+<p>Lykke til med resten av prosjektet ditt, og gi beskjed hvis det er noe annet jeg kan hjelpe med!</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen lager koden_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Takk for hjelpen! Jeg ser frem mot at teste koden med min krets senere. Kan du skrive en kommentar i starten på koden som forklarer at det er du som skrevet koden?</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen lager koden_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen lager koden_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en kommentar du kan legge til i starten av koden for å angi at den ble skrevet av meg (AI-modellen fra OpenAI):</p>
+<pre><code class="language-cpp">/*
+  Kode skrevet av OpenAI's GPT-3 språkmodell.
+  Dette er et eksempel på en implementering for å styre en motor og andre enheter ved hjelp av Arduino.
+*/
+</code></pre>
+<p>Merk at du kan tilpasse kommentaren etter behov hvis du ønsker å inkludere mer informasjon eller spesifisere hvilken versjon av koden dette er.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span></ul></div><div id="input_line" class="mt-3"><textarea id="text-input" type="text" rows="5" aria-label="Skriv her. Ikke legg inn personlige og sensitive opplysninger." class="form-control" placeholder="Skriv her. Ikke legg inn personlige og sensitive opplysninger."></textarea><div class="card"><div class="card-body bg-body-tertiary"><button class="btn oslo-btn-primary" type="button" id="button-send">Send</button><button class="btn oslo-btn-secondary" type="button" id="button-new">Ny samtale</button><div><small>Husk at en AI ikke er et menneske og kan skrive ting som ikke stemmer med virkeligheten, og den gir ikke beskjed om når den gjør det.</small></div></div></div></div><div> &nbsp; </div></div></div>
+
+  </div>
+
+  <script src="./KI for Osloskolen lager koden_files/marked.umd.min.js.download"></script>  
+  <script src="./KI for Osloskolen lager koden_files/jquery.min.js.download"></script>  
+  <script src="./KI for Osloskolen lager koden_files/bootstrap.bundle.min.js.download" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+  
+  <script src="./KI for Osloskolen lager koden_files/vue.global.prod.js.download"></script>
+  
+  
+  <script src="./KI for Osloskolen lager koden_files/scripts.js.download"></script>
+
+
+
+
+</body></html>
