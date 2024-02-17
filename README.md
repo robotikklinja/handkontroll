@@ -69,6 +69,12 @@ Det finns forskjellige fritzing filer, noen viser alle deler, noen viser bare de
 * Frtizing [PDF-koblingskjema bare kortet](handkontroll_full_schematic_pcb_4_buttons_schem.pdf)
 * [PCB med 4 knapper bare kortet i fritzing ](handkontroll_full_schematic_pcb_4_buttons.fzz)
 * 4 knapp versjon- Designet i fritzing,  Bestillt fra fabrikk via deres integrerte tjenste [Se kortet online](https://aisler.net/p/QSIZRARK)
+
+#### Version log
+1.3 Ordered Pcb
+1.4 All LEDs pins now have PWM functionallity and the external power connector is now a JST-plug like the others
+1.5 Merge switch and power connector to standardize them 
+1.6 Auto-route traces (separate file)
   
 |    Antall kort  | Totalpris i € | Stykkpis i € |
 | ----------- | ----------- | ----------- |
