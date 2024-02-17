@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://ki.osloskolen.no/bot/1 -->
+<html lang="no" class=" tivommmgi idc0_350"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex">
+  
+  <title>
+  KI for Osloskolen
+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="https://ki.osloskolen.no/static/logo/favicon_16.ico" type="image/x-icon">
+  <link href="./KI for Osloskolen skriver brukerveiledning_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./KI for Osloskolen skriver brukerveiledning_files/style.css">
+</head>
+
+
+<body>
+  
+<header>
+  <div id="header" class="d-flex justify-content-between p-4 oslo-bg-light">
+    <a href="https://ki.osloskolen.no/">
+      <h1 class="h3 p-3">
+        Kunstig intelligens for Osloskolen
+      </h1>
+    </a>
+    <a class="logo" href="https://ki.osloskolen.no/">
+      <img src="./KI for Osloskolen skriver brukerveiledning_files/oslo_logo_sort.svg" alt="Oslologo">
+    </a>
+  </div>
+
+  
+  <nav class="d-flex flex-row-reverse">
+    
+    <div class="p-3">
+      <a href="https://ki.osloskolen.no/logout/">Logg ut </a>
+    </div>
+    
+    <div class="p-3">
+      <span class="">
+        <a href="https://ki.osloskolen.no/info/about">Om tjenesten</a>
+      </span>
+    </div>
+    
+    <div class="p-3">
+      <span class="">
+        <a href="https://ki.osloskolen.no/info/how_to">Tips</a>
+      </span>
+    </div>
+    
+    
+    <div class="p-3">
+      <a href="https://ki.osloskolen.no/">Startside</a>
+    </div>
+    
+    
+  </nav>
+  
+
+</header>
+
+
+
+
+  <div class="container mt-3">    
+    
+
+    
+
+<div id="bot_page" data-v-app=""><div id="bot_nr" hidden="">1</div><div><h1 class="h2">Osloskolen-GPT</h1><p>Denne chatboten er vennlig og flink. Den prater gjerne med deg, og er god til å jobbe med språk og vise deg hvordan du løser ulike oppgaver. Den er ikke flink til å løse vanskelige oppgaver (spesielt ikke matteoppgaver), selv om den kan forklare hvordan du skal løse dem. Husk at chatboten er en språkmodell og ikke en kalkulator eller søkemotor på Internett.</p><button class="btn oslo-btn-secondary">Vis ledetekst</button><div class="card border-dark"><ul class="list-group list-group-flush"><span><!----></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen skriver brukerveiledning_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Hei! Du har hjulpet meg at skrive denne arduino koden for en håndkontroll som styrer en motor. 
+
+#include <wire.h>
+#include <liquidcrystal_i2c.h>
+
+// Definerer I2C LCD-objektet
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Definerer pinnumrene for knapper
+const int BUTTON1_PIN = 2;
+const int BUTTON2_PIN = 4;
+const int BUTTON3_PIN = 7;
+const int BUTTON4_PIN = 8;
+
+// Definerer pinnumrene for lysdioder
+const int LED1_PIN = 3;
+const int LED2_PIN = 5;
+const int LED3_PIN = 6;
+const int LED4_PIN = 9;
+
+// Definerer pinnumrene for motor
+const int PWM_MOTOR_PIN = 10;
+const int DIRECTION_MOTOR_PIN = 11;
+const int RUN_MOTOR_PIN = 12;
+
+// Definerer pinnumrene for høyttaler
+const int SPEAKER_PIN = 13;
+
+// Definerer pinnumrene for potensiometer
+const int POTENTIOMETER_PIN = A0;
+
+// Variabler for å lagre data fra potensiometer og knapper
+int potValue = 0;
+int button1State = LOW;
+int button2State = LOW;
+int button3State = LOW;
+int button4State = LOW;
+int motorSpeed = 0;
+bool motorRunning = false;
+unsigned long startTime = 0;
+unsigned long remainingTime = 0;
+const unsigned long MOTOR_RUN_TIME = 60000;  // 60 sekunder
+
+void setup() {
+  // Konfigurerer seriell kommunikasjon
+  Serial.begin(9600);
+
+  // Konfigurerer I2C LCD-skjermen
+  lcd.begin(16, 2);
+  lcd.print("Motorhastighet:");
+
+  // Sett pinmodus for knapper
+  pinMode(BUTTON1_PIN, INPUT);
+  pinMode(BUTTON2_PIN, INPUT);
+  pinMode(BUTTON3_PIN, INPUT);
+  pinMode(BUTTON4_PIN, INPUT);
+
+  // Sett pinmodus for lysdioder
+  pinMode(LED1_PIN, OUTPUT);
+  pinMode(LED2_PIN, OUTPUT);
+  pinMode(LED3_PIN, OUTPUT);
+  pinMode(LED4_PIN, OUTPUT);
+
+  // Sett pinmodus for motor
+  pinMode(PWM_MOTOR_PIN, OUTPUT);
+  pinMode(DIRECTION_MOTOR_PIN, OUTPUT);
+  pinMode(RUN_MOTOR_PIN, OUTPUT);
+
+  // Sett pinmodus for høyttaler
+  pinMode(SPEAKER_PIN, OUTPUT);
+
+  // Leser innstillingen til potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Setter oppgangstiden som nedtellingstiden
+  remainingTime = MOTOR_RUN_TIME;
+
+  // Setter oppgangstiden som starttidspunktet
+  startTime = millis();
+}
+
+void loop() {
+  // Leser knappetrykk og lagrer verdiene
+  button1State = digitalRead(BUTTON1_PIN);
+  button2State = digitalRead(BUTTON2_PIN);
+  button3State = digitalRead(BUTTON3_PIN);
+  button4State = digitalRead(BUTTON4_PIN);
+
+  // Leser verdien fra potensiometeret
+  potValue = analogRead(POTENTIOMETER_PIN);
+
+  // Oppdaterer retning og hastighet basert på potensiometeret hvis motoren ikke kjører
+  if (!motorRunning) {
+    motorSpeed = map(potValue, 0, 1023, -255, 255);
+
+    // Setter hastighet og retning for motoren
+    int targetSpeed = abs(motorSpeed);
+    analogWrite(PWM_MOTOR_PIN, targetSpeed);
+    digitalWrite(DIRECTION_MOTOR_PIN, motorSpeed &gt; 0 ? HIGH : LOW);
+
+    // Oppdaterer LCD-skjermen med motorhastigheten
+    lcd.setCursor(0, 1);
+    lcd.print("Speed:");
+    lcd.print(targetSpeed);
+    lcd.print(" ");
+  }
+
+  // Starter motoren hvis Button1 er trykket
+  if (button1State == HIGH) {
+    motorRunning = true;
+    remainingTime = MOTOR_RUN_TIME;
+    startTime = millis();
+    digitalWrite(RUN_MOTOR_PIN, HIGH);
+  }
+
+  // Stopper motoren hvis Button2 er trykket
+  if (button2State == HIGH) {
+    motorRunning = false;
+    digitalWrite(RUN_MOTOR_PIN, LOW);
+    lcd.setCursor(7, 1);
+    lcd.print("     ");
+  }
+
+  // Trekker fra et sekund hvis Button3 er trykket
+  if (button3State == HIGH) {
+    if ((millis() - startTime) &gt;= 1000) {
+      startTime += 1000;
+      remainingTime -= 1000;
+      if (remainingTime &lt; 0) {
+        remainingTime = 0;
+      }
+    }
+  }
+
+  // Legger til et sekund hvis Button4 er trykket
+  if (button4State == HIGH) {
+    if ((millis() - startTime) &lt;= (MOTOR_RUN_TIME - 1000)) {
+      startTime -= 1000;
+      remainingTime += 1000;
+      if (remainingTime &gt; MOTOR_RUN_TIME) {
+        remainingTime = MOTOR_RUN_TIME;
+      }
+    }
+  }
+
+  // Slår på eller av lysdiodene basert på knappetrykk
+  digitalWrite(LED1_PIN, button1State);
+  digitalWrite(LED2_PIN, button2State);
+  digitalWrite(LED3_PIN, button3State);
+  digitalWrite(LED4_PIN, button4State);
+
+  // Viser gjenværende tid på LCD-skjermen
+  lcd.setCursor(7, 1);
+  lcd.print(remainingTime / 1000);
+  lcd.print("s  ");
+
+  // Gjør et kort signal fra høyttaleren når timeren når null
+  if (motorRunning &amp;&amp; remainingTime == 0) {
+    tone(SPEAKER_PIN, 2000, 200);
+  }
+
+  // Spiller en lyd hvis knapp 3 er trykket
+  if (button3State == HIGH) {
+    tone(SPEAKER_PIN, 1000);
+  } else {
+    noTone(SPEAKER_PIN);
+  }
+
+  // Venter et kort øyeblikk før loopen gjentar seg
+  delay(100);
+}
+
+Kan du nå hjelpe meg at skrive en brukerveiledning for håndkontrollen? </liquidcrystal_i2c.h></wire.h></span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen skriver brukerveiledning_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen skriver brukerveiledning_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en brukerveiledning for håndkontrollen:</p>
+<h1>Brukerveiledning for Håndkontroll</h1>
+<p>Håndkontrollen er designet for å styre en motor ved hjelp av knapper og et potensiometer. Følg disse trinnene for å bruke håndkontrollen riktig:</p>
+<h2>Montering</h2>
+<ol>
+<li>Koble LCD-skjermen til Arduino ved hjelp av en I2C-tilkobling.</li>
+<li>Koble knappene til de angitte pinene: BUTTON1_PIN, BUTTON2_PIN, BUTTON3_PIN, BUTTON4_PIN.</li>
+<li>Koble lysdiodene til de angitte pinene: LED1_PIN, LED2_PIN, LED3_PIN, LED4_PIN.</li>
+<li>Koble motoren til PWM_MOTOR_PIN, DIRECTION_MOTOR_PIN og RUN_MOTOR_PIN (PWM).</li>
+</ol>
+<h2>Bruk</h2>
+<ol>
+<li>Koble Arduino til strømkilden.</li>
+<li>LCD-skjermen vil vise "Motorhastighet:" som en startmelding.</li>
+</ol>
+<h3>Potensiometer</h3>
+<ul>
+<li>Drei på potensiometeret for å justere motorhastigheten. </li>
+<li>Høyere verdier øker hastigheten, mens lavere verdier senker hastigheten.</li>
+<li>Merk deg at motorhastigheten ikke endres mens motoren er i drift.</li>
+</ul>
+<h3>Knapper</h3>
+<ul>
+<li>Kontrollknapp 1 (BUTTON1) brukes til å starte motoren.<ul>
+<li>Trykk på denne knappen for å starte motoren. Motor vil kjøre i 60 sekunder.</li>
+<li>LCD-skjermen viser "Speed: XX" hvor XX representerer motorhastigheten.</li>
+</ul>
+</li>
+<li>Kontrollknapp 2 (BUTTON2) brukes til å stoppe motoren.<ul>
+<li>Trykk på denne knappen for å stoppe motoren. LCD-skjermen blir blank.</li>
+<li>Merk: Hvis motoren allerede er stoppet, har denne knappen ingen effekt.</li>
+</ul>
+</li>
+<li>Kontrollknapp 3 (BUTTON3) brukes til å redusere tiden på tidsuret med ett sekund.<ul>
+<li>Trykk på denne knappen for å redusere tiden med ett sekund.</li>
+<li>Den gjenværende tiden vises på LCD-skjermen.</li>
+</ul>
+</li>
+<li>Kontrollknapp 4 (BUTTON4) brukes til å øke tiden på tidsuret med ett sekund.<ul>
+<li>Trykk på denne knappen for å øke tiden med ett sekund.</li>
+<li>Den gjenværende tiden vises på LCD-skjermen.</li>
+</ul>
+</li>
+</ul>
+<h3>Indikatorlys</h3>
+<ul>
+<li>Hver knapp har et tilknyttet indikatorlys (LED1, LED2, LED3, LED4).</li>
+<li>Når en knapp er aktivert, lyser det tilhørende lyset.</li>
+<li>Når en knapp er deaktivert, slukker det tilhørende lyset.</li>
+</ul>
+<h3>Lyd</h3>
+<ul>
+<li>Hvis motoren når null på tidsuret, spilles en kort lyd av høyttaleren.</li>
+<li>Hvis knapp 3 (BUTTON3) er trykket inn, spilles en kontinuerlig lyd av høyttaleren.</li>
+</ul>
+<p>Vennligst bruk håndkontrollen ansvarlig og følg riktig sikkerhetsprosedyre når du bruker motoren.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span><span><li class="container-fluid list-group-item response user"><span class="row"><div class="col-1 avatar"><!----><img src="./KI for Osloskolen skriver brukerveiledning_files/user.svg" alt="du:"><!----></div><div class="col"><span class="chat">Takk takk, kan du kortfattet beskrive håndkontrollens viktigste funksjoner? Kalle det en funksjonsbeskrivelse.</span></div><div class="col-1 edit-link"><a href="https://ki.osloskolen.no/bot/1#"><img src="./KI for Osloskolen skriver brukerveiledning_files/rediger.svg" alt="rediger"></a></div></span></li></span><span><li class="container-fluid list-group-item response assistant"><span class="row"><div class="col-1 avatar"><!----><!----><img src="./KI for Osloskolen skriver brukerveiledning_files/oslobot.svg" alt="bot:"></div><div class="col"><span class="chat"><p>Selvfølgelig! Her er en kortfattet beskrivelse av håndkontrollens viktigste funksjoner:</p>
+<ol>
+<li>Motorhastighet: Du kan justere motorhastigheten ved å dreie på potensiometeret.</li>
+<li>Starte motoren: Ved å trykke på knapp 1 (BUTTON1) starter du motoren, som vil kjøre i 60 sekunder.</li>
+<li>Stoppe motoren: Knapp 2 (BUTTON2) brukes til å stoppe motoren.</li>
+<li>Tidsjustering: Ved hjelp av knapp 3 (BUTTON3) kan du redusere tiden på tidsuret med ett sekund, mens knapp 4 (BUTTON4) øker tiden med ett sekund.</li>
+<li>Indikatorlys: Hver knapp har et tilknyttet indikatorlys som viser om knappen er aktivert eller deaktivert.</li>
+<li>Lydeffekter: Hvis motoren når null på tidsuret, spilles en kort lyd. Hvis knapp 3 (BUTTON3) er trykket inn, spilles en kontinuerlig lyd.</li>
+</ol>
+<p>Husk å bruke håndkontrollen ansvarlig og ta hensyn til sikkerhetsprosedyrer ved bruk av motoren.</p>
+</span></div><div class="col-1 edit-link"><!----></div></span></li></span></ul></div><div id="input_line" class="mt-3"><textarea id="text-input" type="text" rows="5" aria-label="Skriv her. Ikke legg inn personlige og sensitive opplysninger." class="form-control" placeholder="Skriv her. Ikke legg inn personlige og sensitive opplysninger."></textarea><div class="card"><div class="card-body bg-body-tertiary"><button class="btn oslo-btn-primary" type="button" id="button-send">Send</button><button class="btn oslo-btn-secondary" type="button" id="button-new">Ny samtale</button><div><small>Husk at en AI ikke er et menneske og kan skrive ting som ikke stemmer med virkeligheten, og den gir ikke beskjed om når den gjør det.</small></div></div></div></div><div> &nbsp; </div></div></div>
+
+  </div>
+
+  <script src="./KI for Osloskolen skriver brukerveiledning_files/marked.umd.min.js.download"></script>  
+  <script src="./KI for Osloskolen skriver brukerveiledning_files/jquery.min.js.download"></script>  
+  <script src="./KI for Osloskolen skriver brukerveiledning_files/bootstrap.bundle.min.js.download" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+  
+  <script src="./KI for Osloskolen skriver brukerveiledning_files/vue.global.prod.js.download"></script>
+  
+  
+  <script src="./KI for Osloskolen skriver brukerveiledning_files/scripts.js.download"></script>
+
+
+
+
+</body></html>
